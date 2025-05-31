@@ -2,11 +2,11 @@
 
 A Django-based travel listing platform, serving as the foundation for a scalable, production-ready backend. This project is part of a multi-stage learning experience and will be expanded with more features in future milestones.
 
-## Milestone 1: Setup and Database Configuration
+## Milestone 1: Setup, Database Configuration, and Seeding
 
 ### Overview
 
-This milestone focuses on setting up the initial project structure, configuring a robust MySQL database, and integrating essential tools for API documentation and maintainable configurations. The goal is to establish best practices for Django project initialization and prepare the application for future development.
+This milestone focuses on setting up the initial project structure, configuring a robust MySQL database, integrating essential tools for API documentation, and establishing maintainable configurations. It also includes creating database models, serializers, and a management command for seeding the database with sample data.
 
 ### Key Objectives
 
@@ -33,13 +33,26 @@ This milestone focuses on setting up the initial project structure, configuring 
 
 - **Version Control:**  
   - Initialize a Git repository.
-  - Commit all setup files and push to a GitHub repository named `alx_travel_app`.
+  - Commit all setup files and push to a GitHub repository named `alx_travel_app_0x00`.
+
+- **Database Models and Serializers:**  
+  - Define `Listing`, `Booking`, and `Review` models in `listings/models.py`.
+  - Create serializers for these models in `listings/serializers.py`.
+
+- **Database Seeder:**  
+  - Implement a management command in `listings/management/commands/seed.py` to populate the database with sample data.
 
 ### Project Structure
 
 ```
 alx_travel_app/
 ├── listings/
+│   ├── models.py
+│   ├── serializers.py
+│   ├── management/
+│   │   └── commands/
+│   │       └── seed.py
+│   └── README.md
 ├── alx_travel_app/
 │   ├── settings.py
 │   ├── urls.py
@@ -50,12 +63,36 @@ alx_travel_app/
 
 ### Tasks Checklist
 
-- [ ] Initialize Django project and `listings` app
-- [ ] Install all required dependencies
-- [ ] Configure MySQL database using environment variables
-- [ ] Set up Django REST Framework and CORS headers
-- [ ] Integrate Swagger documentation at `/swagger/`
-- [ ] Initialize Git repository and make initial commit
+- [x] Initialize Django project and `listings` app
+- [x] Install all required dependencies
+- [x] Configure MySQL database using environment variables
+- [x] Set up Django REST Framework and CORS headers
+- [x] Integrate Swagger documentation at `/swagger/`
+- [x] Initialize Git repository and make initial commit
+- [x] Define models and serializers for `Listing`, `Booking`, and `Review`
+- [x] Implement and test database seeder command
+
+---
+
+## Setup Instructions
+
+1. **Install dependencies:**  
+   `pip install -r requirements.txt`
+
+2. **Configure environment:**  
+   Create a `.env` file with your database and secret key settings.
+
+3. **Apply migrations:**  
+   `python manage.py migrate`
+
+4. **Seed the database:**  
+   `python manage.py seed`
+
+5. **Run the development server:**  
+   `python manage.py runserver`
+
+6. **Access Swagger API docs:**  
+   Visit `http://localhost:8000/swagger/`
 
 ---
 
